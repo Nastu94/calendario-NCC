@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-leading {
+    line-height: 3rem;
+}
+
+.space-from-element{
+    padding-left: 35px;
+    font-size: 12px;
+}
+
+.py-2 {
+    padding-top: .6rem;
+    padding-bottom: .5rem;
+}
+
+.fc-event {
+    border: none !important; /* Rimuove i bordi */
+    background: none !important; /* Rimuove il background */
+    box-shadow: none !important; /* Rimuove l'ombra */
+}
+
+.fc-event:hover {
+    background: none !important; /* Rimuove l'effetto hover */
+}
+
+.event-badge {
+    border-radius: 50%;
+    padding: 5px 10px;
+    background-color: #f56565; 
+    color: white; 
+    text-align: center;
+    width: 25%; 
+    min-width: 25px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 900px) {
+    .responsive-hidden {
+        display: none;
+    }
+    .responsive-block {
+        display: block;
+    }
+    .responsive-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
