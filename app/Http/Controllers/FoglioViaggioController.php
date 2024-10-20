@@ -186,9 +186,23 @@ class FoglioViaggioController extends Controller
      */
     public function show($id)
     {
-        $foglioViaggio = FoglioViaggio::with(['azienda', 'prenotazione'])->findOrFail($id);
+        $user = auth()->user();
+        $foglioViaggio = FoglioViaggio::with(['azienda.dati', 'prenotazione', 'veicolo'])->findOrFail($id);
+    
+        // Controlla se il foglio di viaggio appartiene all'azienda dell'utente autenticato
+        if (!in_array($foglioViaggio->azienda_id, $user->aziende->pluck('id')->toArray())) {
+            abort(403, 'Accesso non autorizzato a questo foglio di viaggio.');
+        }
+    
+        // Controlla se i dati aziendali sono presenti
+        if (!$foglioViaggio->azienda || !$foglioViaggio->azienda->dati) {
+            abort(403, 'Dati aziendali non disponibili. Impossibile visualizzare il foglio di viaggio.');
+        }
+    
+        // Se tutto è in ordine, passa i dati alla vista
         return view('fogli-viaggio.show', compact('foglioViaggio'));
-    }    
+    }
+       
 
     /**
      * Show the form for editing the specified foglio di viaggio.
@@ -205,15 +219,15 @@ class FoglioViaggioController extends Controller
     
         // Verifica se l'utente può modificare il foglio di viaggio
         $aziendaIds = $user->aziende->pluck('id');
-        $prenotazione = $foglioViaggio->prenotazione;
     
-        // Controllo dell'appartenenza della prenotazione
-        $canEdit = $prenotazione->user_id == $user->id ||
-                   $prenotazione->utente->aziende->pluck('id')->intersect($aziendaIds)->isNotEmpty() ||
-                   ($prenotazione->condivisioni && $prenotazione->condivisioni->acceptor_id == $user->id && $prenotazione->condivisioni->stato == 'accettata');
-    
-        if (!$canEdit) {
+        // Controllo diretto sull'appartenenza dell'azienda al foglio di viaggio
+        if (!in_array($foglioViaggio->azienda_id, $aziendaIds->toArray())) {
             abort(403, 'Accesso non autorizzato a questo foglio di viaggio.');
+        }
+
+        // Verifica se il foglio di viaggio ha già un numero definitivo assegnato e non è modificabile
+        if ($foglioViaggio->numero && strpos($foglioViaggio->numero, '/') !== false) {
+            abort(403, 'Questo foglio di viaggio è già stato numerato e non può essere modificato ulteriormente.');
         }
     
         // Trova l'ultimo numero di foglio di viaggio usato per questa azienda
@@ -231,6 +245,7 @@ class FoglioViaggioController extends Controller
         // Passa il numero successivo e il foglio di viaggio alla vista
         return view('fogli-viaggio.edit', compact('foglioViaggio', 'nextNumber'));
     }
+    
     
     /**
      * Update the specified foglio di viaggio in storage.
