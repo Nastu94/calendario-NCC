@@ -14,12 +14,12 @@
                         <div class="text-center">
                             <p class="text-2xl font-bold mb-1">{{ $foglioViaggio->azienda->nome }}</p>
                             <p class="text-xs">
-                                {{ $foglioViaggio->azienda->dati->indirizzo }},
-                                {{ $foglioViaggio->azienda->dati->cap }} - {{ $foglioViaggio->azienda->dati->citta }},
-                                {{ $foglioViaggio->azienda->dati->provincia }}
+                                {{ ucwords($foglioViaggio->azienda->dati->indirizzo) }},
+                                {{ ucwords($foglioViaggio->azienda->dati->cap) }} - {{ ucwords($foglioViaggio->azienda->dati->citta) }},
+                                {{ ucwords($foglioViaggio->azienda->dati->provincia) }}
                             </p>
                             <p class="text-xs">
-                                Cod. Fisc.: {{ $foglioViaggio->azienda->dati->codice_fiscale }} / P. IVA: {{ $foglioViaggio->azienda->dati->partita_iva }}
+                                Cod. Fisc.: {{ strtoupper($foglioViaggio->azienda->dati->codice_fiscale) }} / P. IVA: {{ strotoupper($foglioViaggio->azienda->dati->partita_iva) }}
                             </p>
                             <p class="text-xs">
                                 Tel.: {{ $foglioViaggio->azienda->dati->cellulare }} - Email: {{ $foglioViaggio->azienda->dati->email }}
