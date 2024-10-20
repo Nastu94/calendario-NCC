@@ -19,27 +19,27 @@
             </div>
                 
             <div class="mb-4 flex justify-center items-center">
-                    @if($tipo == 'aziendali' || $tipo == 'globali' || $tipo == 'condivise')
-                    <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'personali']) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Personali
-                    </a>
-                    @endif
-                    @if($tipo == 'personali' || $tipo == 'globali' || $tipo == 'condivise')
-                    <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'aziendali']) }}" class="ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                        Aziendali
-                    </a>
-                    @endif
-                    @if($tipo == 'personali' || $tipo == 'aziendali' || $tipo == 'condivise')
-                    <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'globali']) }}" class="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                        Globali
-                    </a>
-                    @endif
-                    @if($tipo == 'personali' || $tipo == 'aziendali' || $tipo == 'globali')
-                    <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'condivise']) }}" class="ml-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                        Condivise
-                    </a>
-                    @endif
-                </div>
+                @if($tipo == 'aziendali' || $tipo == 'globali' || $tipo == 'condivise')
+                <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'personali']) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Personali
+                </a>
+                @endif
+                @if($tipo == 'personali' || $tipo == 'globali' || $tipo == 'condivise')
+                <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'aziendali']) }}" class="ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Aziendali
+                </a>
+                @endif
+                @if($tipo == 'personali' || $tipo == 'aziendali' || $tipo == 'condivise')
+                <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'globali']) }}" class="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    Globali
+                </a>
+                @endif
+                @if($tipo == 'personali' || $tipo == 'aziendali' || $tipo == 'globali')
+                <a href="{{ route('prenotazioni.dettaglio', ['data' => $data, 'tipo' => 'condivise']) }}" class="ml-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Condivise
+                </a>
+                @endif
+            </div>
             
             @if ($prenotazioni->isEmpty())
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
@@ -59,7 +59,7 @@
                                     <div>
                                         <strong>Dati della Prenotazione:</strong>
                                         <p>Nome: {{ $prenotazione->nome }} {{ $prenotazione->cognome }}</p>
-                                        <p>Partenza: {{ $prenotazione->partenza }} - Arrivo: {{ $prenotazione->arrivo }}</p>
+                                        <p>Partenza: {{ ucwords($prenotazione->partenza . ', ' . $prenotazione->cittaPartenza) }} - Arrivo: {{ ucwords($prenotazione->arrivo . ', ' . $prenotazione->cittaArrivo) }}</p>
                                         <p>Data: {{ $prenotazione->dataPartenza }}</p>
                                         <p>Passeggeri: {{ $prenotazione->passeggeri }} - Bagagli: {{ $prenotazione->bagagli }}</p>
                                     </div>

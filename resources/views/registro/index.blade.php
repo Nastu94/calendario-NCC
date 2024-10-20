@@ -40,7 +40,7 @@
                                     <div>
                                         <strong>Dati della Prenotazione:</strong>
                                         <p>Nome: {{ $evento['prenotazione']['nome'] }} {{ $evento['prenotazione']['cognome'] }}</p>
-                                        <p>Partenza: {{ $evento['prenotazione']['partenza'] }} - Arrivo: {{ $evento['prenotazione']['arrivo'] }}</p>
+                                        <p>Partenza: {{ ucwords($evento['prenotazione']['partenza'] . ', ' . $evento['prenotazione']['cittaPartenza']) }} - Arrivo: {{ ucwords($evento['prenotazione']['arrivo'] . ', ' . $evento['prenotazione']['cittaArrivo']) }}</p>
                                         <p>Data: {{ ($evento['prenotazione']['dataPartenza']) }}</p>
                                         <p>Passeggeri: {{ $evento['prenotazione']['passeggeri'] }} - Bagagli: {{ $evento['prenotazione']['bagagli'] }}</p>
                                     </div>
