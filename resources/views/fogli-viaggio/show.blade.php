@@ -19,7 +19,7 @@
                                 {{ ucwords($foglioViaggio->azienda->dati->provincia) }}
                             </p>
                             <p class="text-xs">
-                                Cod. Fisc.: {{ strtoupper($foglioViaggio->azienda->dati->codice_fiscale) }} / P. IVA: {{ strotoupper($foglioViaggio->azienda->dati->partita_iva) }}
+                                Cod. Fisc.: {{ strtoupper($foglioViaggio->azienda->dati->codice_fiscale) }} / P. IVA: {{ strtoupper($foglioViaggio->azienda->dati->partita_iva) }}
                             </p>
                             <p class="text-xs">
                                 Tel.: {{ $foglioViaggio->azienda->dati->cellulare }} - Email: {{ $foglioViaggio->azienda->dati->email }}
