@@ -6,6 +6,7 @@ use App\Http\Controllers\AziendaController;
 use App\Http\Controllers\VeicoloController;
 use App\Http\Controllers\PrenotazioniController;
 use App\Http\Controllers\PrenotazioneCondivisaController;
+use App\Http\Controllers\PrenotazioneEsternaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\FoglioViaggioController;
 use App\Http\Middleware\CheckAdmin;
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth/login');
 });
+
+Route::get('/prenotazioni/esterna/create/{token}', [PrenotazioneEsternaController::class, 'create'])->name('prenotazioni.esterna.create');
+Route::post('/prenotazioni/esterna/store/{token}', [PrenotazioneEsternaController::class, 'store'])->name('prenotazioni.esterna.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -53,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile/generate-token', [ProfileController::class, 'generateToken'])->name('profile.generate_token');
 
     Route::prefix('prenotazioni')->group(function () {
         Route::get('/prenotazioni-personali', [PrenotazioniController::class, 'index_personali'])->name('prenotazioni.index-personali');

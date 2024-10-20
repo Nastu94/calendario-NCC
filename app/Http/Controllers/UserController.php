@@ -90,7 +90,7 @@ class UserController extends Controller
         $user->aziende()->attach($request->azienda_id);
     
         return redirect()->route('dashboard')->with('success', 'Utente creato correttamente.');
-    }    
+    }
 
     /**
      * Display the specified user.
