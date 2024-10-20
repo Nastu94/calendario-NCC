@@ -186,9 +186,9 @@ class FoglioViaggioController extends Controller
      */
     public function show($id)
     {
-        $foglioViaggio = FoglioViaggio::findOrFail($id);
+        $foglioViaggio = FoglioViaggio::with(['azienda', 'prenotazione'])->findOrFail($id);
         return view('fogli-viaggio.show', compact('foglioViaggio'));
-    }
+    }    
 
     /**
      * Show the form for editing the specified foglio di viaggio.

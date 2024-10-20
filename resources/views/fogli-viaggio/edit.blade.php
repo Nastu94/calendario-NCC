@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-6">
                             <x-input-label for="kmFinali" value="Kilometri Finali:" />
-                            <x-text-input id="kmFinali" name="kmFinali" type="number" placeholder="I KM attuali della {{ $foglioViaggio->veicolo->modello . ' sono ' . $foglioViaggio->kmIniziali }}" min="{{ $foglioViaggio->kmIniziali }}" required class="block mt-1 w-full" />
+                            <x-text-input id="kmFinali" name="kmFinali" type="number" placeholder="{{ $foglioViaggio->veicolo->modello . ' ha ' . $foglioViaggio->kmIniziali }}KM" min="{{ $foglioViaggio->kmIniziali }}" required class="block mt-1 w-full" />
                         </div>
                         <x-primary-button class="mt-4">
                             Aggiorna Foglio di Viaggio
