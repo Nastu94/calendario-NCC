@@ -43,17 +43,19 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-        $aziendaDati = $user->aziende()->first()->dati;
+        $azienda = $user->aziende()->first();
     
-        if (!$aziendaDati) {
-            return Redirect::back()->withErrors(['msg' => 'Dati aziendali non trovati']);
+        if (!$azienda) {
+            return Redirect::back()->withErrors(['msg' => 'Nessuna azienda associata all\'utente.']);
         }
+    
+        $aziendaDati = $azienda->dati ?? new AziendaDati(['azienda_id' => $azienda->id]);
     
         $aziendaDati->fill($request->validated());
         $aziendaDati->save();
     
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
+        return Redirect::route('profile.edit')->with('status', 'Dati aziendali aggiornati con successo.');
+    }    
 
     /**
      * Delete the user's account.
