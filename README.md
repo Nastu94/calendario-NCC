@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SorianoService - Gestionale per Noleggio con Conducente (NCC)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+SorianoService è un gestionale dedicato alle aziende che offrono servizi di **noleggio con conducente** (NCC). Il sistema permette la gestione delle prenotazioni, flotte di veicoli, fogli di viaggio e ruoli degli utenti con un'interfaccia intuitiva e funzionalità avanzate.
 
-## About Laravel
+## Caratteristiche principali
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Gestione delle prenotazioni**: Crea, modifica e condividi prenotazioni per i servizi di trasporto.
+- **Ruoli e permessi personalizzabili**: Ruoli specifici per amministratori, aziende e autisti con gestione granulare dei permessi.
+- **Gestione delle aziende**: Ogni azienda può registrare informazioni sui propri veicoli e autisti.
+- **Fogli di viaggio**: Tieni traccia dei viaggi, chilometri percorsi e dettagli delle corse.
+- **Condivisione delle prenotazioni**: Prenotazioni condivisibili e accettabili da altri utenti nel sistema.
+- **Integrazione con calendari**: Visualizzazione e gestione delle prenotazioni tramite FullCalendar.
+- **Interfaccia moderna e responsiva**: Progettata per garantire un'esperienza fluida su dispositivi desktop e mobile.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisiti di sistema
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **PHP >= 8.3.8**
+- **Composer**
+- **Laravel >= 11.x**
+- **Node.js >= 22.x**
+- **npm >= 10.x**
+- **Database MySQL/MariaDB** o altro database compatibile con Laravel
 
-## Learning Laravel
+## Installazione
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clona il repository:
+   ```bash
+   git clone https://github.com/Nastu94/SorianoService.git
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Entra nella directory del progetto:
+   ```bash
+   cd SorianoService
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Installa le dipendenze PHP utilizzando Composer:
+   ```bash
+   composer install
+   ```
 
-## Laravel Sponsors
+4. Installa le dipendenze JavaScript utilizzando npm:
+   ```bash
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. Crea il file `.env` copiando il file di esempio:
+   ```bash
+   cp .env.example .env
+   ```
 
-### Premium Partners
+6. Configura il database nel file `.env`:
+   ```dotenv
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nome_database
+   DB_USERNAME=nome_utente
+   DB_PASSWORD=password
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+7. Genera la chiave dell'applicazione:
+   ```bash
+   php artisan key:generate
+   ```
 
-## Contributing
+8. Esegui le migrazioni per creare le tabelle nel database:
+   ```bash
+   php artisan migrate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9. Avvia il server locale:
+   ```bash
+   php artisan serve
+   ```
 
-## Code of Conduct
+## Funzionalità future
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Gestione della fatturazione e dei costi**: Sistema per la generazione di fatture e la gestione dei costi delle prenotazioni.
+- **Integrazione con Google Maps**: Geolocalizzazione dei veicoli, dettagli sui percorsi e navigazione integrata per gli autisti.
+- **Gestione dei pagamenti**: Integrazione con piattaforme di pagamento per la gestione delle tariffe.
+- **Notifiche via email e SMS**: Avvisi automatici per i clienti e gli autisti.
+- **Dashboard avanzata**: Visualizzazione di reportistica, analisi delle performance aziendali e statistiche sui viaggi.
 
-## Security Vulnerabilities
+## Contribuire
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Attualmente il progetto non accetta contributi esterni, ma siamo aperti a suggerimenti e idee. Se desideri proporre una nuova funzionalità o miglioramento, sentiti libero di contattare l'autore tramite [GitHub](https://github.com/Nastu94).
 
-## License
+## Licenza
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Questo progetto è di proprietà dell'autore. La distribuzione, modifica e utilizzo del codice sono soggetti a specifiche condizioni imposte dall'autore. Per ulteriori dettagli, consulta il file [LICENSE](LICENSE) incluso nel progetto.
+
+
