@@ -1,92 +1,93 @@
-# SorianoService - Gestionale per Noleggio con Conducente (NCC)
+# SorianoService - Management System for Chauffeur-Driven Car Rental (NCC)
 
-SorianoService è un gestionale dedicato alle aziende che offrono servizi di **noleggio con conducente** (NCC). Il sistema permette la gestione delle prenotazioni, flotte di veicoli, fogli di viaggio e ruoli degli utenti con un'interfaccia intuitiva e funzionalità avanzate.
+SorianoService is a management system dedicated to companies offering **chauffeur-driven car rental** (NCC) services. The system allows the management of bookings, vehicle fleets, trip logs, and user roles with an intuitive interface and advanced features.
 
-## Caratteristiche principali
+## Key Features
 
-- **Gestione delle prenotazioni**: Crea, modifica e condividi prenotazioni per i servizi di trasporto.
-- **Ruoli e permessi personalizzabili**: Ruoli specifici per amministratori, aziende e autisti con gestione granulare dei permessi.
-- **Gestione delle aziende**: Ogni azienda può registrare informazioni sui propri veicoli e autisti.
-- **Fogli di viaggio**: Tieni traccia dei viaggi, chilometri percorsi e dettagli delle corse.
-- **Condivisione delle prenotazioni**: Prenotazioni condivisibili e accettabili da altri utenti nel sistema.
-- **Integrazione con calendari**: Visualizzazione e gestione delle prenotazioni tramite FullCalendar.
-- **Interfaccia moderna e responsiva**: Progettata per garantire un'esperienza fluida su dispositivi desktop e mobile.
+- **Booking Management**: Create, modify, and share bookings for transportation services.
+- **Customizable Roles and Permissions**: Specific roles for administrators, companies, and drivers with granular permission management.
+- **Company Management**: Each company can register information about their vehicles and drivers.
+- **Trip Logs**: Track trips, kilometers traveled, and trip details.
+- **Booking Sharing**: Bookings can be shared and accepted by other users in the system.
+- **Calendar Integration**: View and manage bookings through FullCalendar.
+- **Modern and Responsive Interface**: Designed to provide a smooth experience on both desktop and mobile devices.
 
-## Requisiti di sistema
+## System Requirements
 
 - **PHP >= 8.3.8**
 - **Composer**
 - **Laravel >= 11.x**
 - **Node.js >= 22.x**
 - **npm >= 10.x**
-- **Database MySQL/MariaDB** o altro database compatibile con Laravel
+- **MySQL/MariaDB Database** or another Laravel-compatible database
 
-## Installazione
+## Installation
 
-1. Clona il repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/Nastu94/SorianoService.git
    ```
 
-2. Entra nella directory del progetto:
+2. Navigate to the project directory:
    ```bash
    cd SorianoService
    ```
 
-3. Installa le dipendenze PHP utilizzando Composer:
+3. Install PHP dependencies using Composer:
    ```bash
    composer install
    ```
 
-4. Installa le dipendenze JavaScript utilizzando npm:
+4. Install JavaScript dependencies using npm:
    ```bash
    npm install
    ```
 
-5. Crea il file `.env` copiando il file di esempio:
+5. Create the `.env` file by copying the example file:
    ```bash
    cp .env.example .env
    ```
 
-6. Configura il database nel file `.env`:
+6. Configure the database in the `.env` file:
    ```dotenv
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=nome_database
-   DB_USERNAME=nome_utente
+   DB_DATABASE=database_name
+   DB_USERNAME=user_name
    DB_PASSWORD=password
    ```
 
-7. Genera la chiave dell'applicazione:
+7. Generate the application key:
    ```bash
    php artisan key:generate
    ```
 
-8. Esegui le migrazioni per creare le tabelle nel database:
+8. Run the migrations to create the tables in the database:
    ```bash
    php artisan migrate
    ```
 
-9. Avvia il server locale:
+9. Start the local server:
    ```bash
    php artisan serve
    ```
 
-## Funzionalità future
+## Future Features
 
-- **Gestione della fatturazione e dei costi**: Sistema per la generazione di fatture e la gestione dei costi delle prenotazioni.
-- **Integrazione con Google Maps**: Geolocalizzazione dei veicoli, dettagli sui percorsi e navigazione integrata per gli autisti.
-- **Gestione dei pagamenti**: Integrazione con piattaforme di pagamento per la gestione delle tariffe.
-- **Notifiche via email e SMS**: Avvisi automatici per i clienti e gli autisti.
-- **Dashboard avanzata**: Visualizzazione di reportistica, analisi delle performance aziendali e statistiche sui viaggi.
+- **Billing and Cost Management**: System for generating invoices and managing booking costs.
+- **Google Maps Integration**: Vehicle geolocation, route details, and integrated navigation for drivers.
+- **Payment Management**: Integration with payment platforms for managing booking fees.
+- **Email and SMS Notifications**: Automatic alerts for customers and drivers.
+- **Advanced Dashboard**: Reporting, company performance analysis, and trip statistics.
 
-## Contribuire
+## Contributing
 
-Attualmente il progetto non accetta contributi esterni, ma siamo aperti a suggerimenti e idee. Se desideri proporre una nuova funzionalità o miglioramento, sentiti libero di contattare l'autore tramite [GitHub](https://github.com/Nastu94).
+Currently, the project does not accept external contributions, but we are open to suggestions and ideas. If you wish to propose a new feature or improvement, feel free to contact the author via [GitHub](https://github.com/Nastu94).
 
-## Licenza
+## License
 
-Questo progetto è di proprietà dell'autore. La distribuzione, modifica e utilizzo del codice sono soggetti a specifiche condizioni imposte dall'autore. Per ulteriori dettagli, consulta il file [LICENSE](LICENSE) incluso nel progetto.
+This project is owned by the author. Distribution, modification, and use of the code are subject to specific conditions set by the author. For further details, please refer to the [LICENSE](LICENSE) file included in the project.
+
 
 
