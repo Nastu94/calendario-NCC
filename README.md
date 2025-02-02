@@ -1,6 +1,6 @@
-# SorianoService - Management System for Chauffeur-Driven Car Rental (NCC)
+# Calendario-NCC - Management System for Chauffeur-Driven Car Rental (NCC)
 
-SorianoService is a management system dedicated to companies offering **chauffeur-driven car rental** (NCC) services. The system allows the management of bookings, vehicle fleets, trip logs, and user roles with an intuitive interface and advanced features.
+Calendario-NCC is a management system dedicated to companies offering **chauffeur-driven car rental** (NCC) services. The system allows the management of bookings, vehicle fleets, trip logs, and user roles with an intuitive interface and advanced features.
 
 ## Key Features
 
@@ -25,12 +25,12 @@ SorianoService is a management system dedicated to companies offering **chauffeu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Nastu94/SorianoService.git
+   git clone https://github.com/Nastu94/calendario-NCC.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd SorianoService
+   cd Calendario-NCC
    ```
 
 3. Install PHP dependencies using Composer:
